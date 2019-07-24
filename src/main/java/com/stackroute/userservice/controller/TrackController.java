@@ -63,7 +63,7 @@ public class TrackController {
     }
 
     // Implementing DELETE method
-    @DeleteMapping(value="/deleteTrack/{id}")
+    @DeleteMapping(value="deleteTrack/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable("id") int id) {
         ResponseEntity responseEntity;
         try {
@@ -73,5 +73,21 @@ public class TrackController {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
+    }
+    @GetMapping(value="getTrack/{id}")
+    public ResponseEntity<?> getTrackbyId(@PathVariable("id") int id) {
+        ResponseEntity responseEntity;
+        try {
+
+            responseEntity = new ResponseEntity(trackService.getTrackById(id), HttpStatus.CREATED);
+        } catch (Exception e) {
+            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
+    @GetMapping("track/search/{name}")
+    public ResponseEntity<?> searchTrack(@PathVariable String name){
+        return new ResponseEntity<>(trackService.getTrackByName(name), HttpStatus.OK);
+
     }
 }

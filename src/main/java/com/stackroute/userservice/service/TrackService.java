@@ -1,7 +1,7 @@
 package com.stackroute.userservice.service;
 
 import com.stackroute.userservice.domain.Track;
-import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -21,5 +21,7 @@ public interface TrackService {
 
 
 
-    }
+
+        public List<Track> getTrackByName(String name);
+}
 

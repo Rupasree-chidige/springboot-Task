@@ -3,10 +3,8 @@ package com.stackroute.userservice.service;
 import com.stackroute.userservice.domain.Track;
 import com.stackroute.userservice.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -53,4 +51,10 @@ public class TrackServiceImpl implements TrackService{
     public boolean UpdateTrack(Track track) {
         return true;
     }
+
+    @Override
+    public List<Track> getTrackByName(String name) {
+        return getTrackByName(name);
+    }
+
 }

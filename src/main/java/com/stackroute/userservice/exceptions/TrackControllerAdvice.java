@@ -12,13 +12,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 class TrackControllerAdvice extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(value = {TrackNotFoundException.class})
-  protected ResponseEntity<Object> handleNotFoundConflict(Exception ex, WebRequest request) {
+  protected ResponseEntity<Object> NotFoundConflict(Exception ex, WebRequest request) {
     String bodyOfResponse = "Track not found!";
     return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.CONFLICT, request);
   }
 
   @ExceptionHandler(value = {TrackAlreadyExistsException.class})
-  protected ResponseEntity<Object> handleAlreadyExistsConflict(Exception ex, WebRequest request) {
+  protected ResponseEntity<Object> AlreadyExistsConflict(Exception ex, WebRequest request) {
     String bodyOfResponse = "Track already exists!";
     return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.CONFLICT, request);
   }

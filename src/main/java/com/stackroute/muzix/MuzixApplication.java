@@ -1,13 +1,13 @@
-package com.stackroute.userservice;
+package com.stackroute.muzix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserserviceApplication {
+public class MuzixApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserserviceApplication.class, args);
+		SpringApplication.run(MuzixApplication.class, args);
 	}
 
 }

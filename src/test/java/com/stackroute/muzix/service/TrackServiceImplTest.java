@@ -1,6 +1,7 @@
 package com.stackroute.muzix.service;
 
-import com.stackroute.muzix.model.Track;
+import com.stackroute.muzix.domain.Track;
+import com.stackroute.muzix.exceptions.TrackAlreadyExistsException;
 import com.stackroute.muzix.repository.TrackRepository;
 import org.junit.Assert;
 import org.junit.Before;
@@ -37,14 +38,13 @@ public class TrackServiceImplTest {
         //Initialising the mock object
         MockitoAnnotations.initMocks(this);
         track = new Track();
-        track.setName("Kadalalle");
+        track.setName("Kadalle");
         track.setId(1);
         track.setComment("Dear Comrade");
         list = new ArrayList<>();
         list.add(track);
 
     }
-
     @Test
     public void deleteTrack() throws Exception {
         when(trackService.deleteTrack(anyInt())).thenReturn(true);
@@ -53,11 +53,11 @@ public class TrackServiceImplTest {
     }
 
     @Test
-    public void saveTrackTestSuccess() {
+    public void saveTrackTestSuccess() throws TrackAlreadyExistsException {
 
         when(trackRepository.save((Track) any())).thenReturn(track);
-        boolean savedUser = trackService.saveTrack(track);
-        Assert.assertTrue(savedUser);
+        Track savedUser = trackService.saveTrack(track);
+        Assert.assertEquals(track, savedUser);
 
         //verify here verifies that userRepository save method is only called once
         verify(trackRepository, times(1)).save(track);
@@ -67,10 +67,10 @@ public class TrackServiceImplTest {
     @Test
     public void updateTrack() throws Exception {
         when(trackRepository.existsById(track.getId())).thenReturn(true);
-        track.setName("ne neeli");
-        when(trackService.updateTrack(anyInt(),any())).thenReturn(true);
-        boolean savedTrack = trackService.updateTrack(track.getId(), track);
-        Assert.assertTrue(savedTrack);
+        track.setName("charitha");
+        when(trackService.updateTrack(any())).thenReturn(track);
+        Track savedTrack = trackService.updateTrack(track);
+        Assert.assertEquals(track,savedTrack);
     }
 
     @Test
@@ -82,5 +82,6 @@ public class TrackServiceImplTest {
         List<Track> userlist = trackService.getAllTracks();
         Assert.assertEquals(list, userlist);
     }
-}
 
+
+}

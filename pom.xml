@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>UserService</artifactId>
+	<artifactId>SpringTask</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>UserService</name>
+	<packaging>jar</packaging>
+	<name>SpringTask</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

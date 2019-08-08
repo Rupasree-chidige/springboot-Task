@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>SpringBootTask</artifactId>
+	<artifactId>Track</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>SpringBootTask</name>
+	<name>Track</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -63,19 +63,6 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.199</version>
 			<!--<scope>runtime</scope>-->
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 
 

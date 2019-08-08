@@ -1,13 +1,13 @@
-package com.stackroute.userservice;
+package com.stackroute.track;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserserviceApplication {
+public class TrackApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserserviceApplication.class, args);
+		SpringApplication.run(TrackApplication.class, args);
 	}
 
 }

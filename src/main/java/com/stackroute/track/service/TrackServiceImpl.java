@@ -1,9 +1,9 @@
-package com.stackroute.userservice.service;
+package com.stackroute.track.service;
 
-import com.stackroute.userservice.domain.Track;
-import com.stackroute.userservice.exceptions.TrackAlreadyExistsException;
-import com.stackroute.userservice.exceptions.TrackNotFoundException;
-import com.stackroute.userservice.repository.TrackRepository;
+import com.stackroute.track.domain.Track;
+import com.stackroute.track.exceptions.TrackAlreadyExistsException;
+import com.stackroute.track.exceptions.TrackNotFoundException;
+import com.stackroute.track.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,33 +19,35 @@ public class TrackServiceImpl implements TrackService{
     }
 
     @Override
-    public boolean saveTrack(Track track) throws TrackAlreadyExistsException {
-        boolean result=false;
+    public Track saveTrack(Track track) throws TrackAlreadyExistsException {
+
+        Track saveduser=null;
         if(trackRepository.existsById(track.getId()))
         {
             throw new TrackAlreadyExistsException("Track Already Exists");
         }
         else{
-            Track saveduser = trackRepository.save(track);
-             result=true;
+            saveduser = trackRepository.save(track);
+
         }
-return result;
+return saveduser;
     }
 
     @Override
-    public boolean deleteTrack(int id) throws TrackNotFoundException {
-       boolean result=false;
+    public Track deleteTrack(int id) throws TrackNotFoundException {
+     Track track=null;
         if(trackRepository.existsById(id))
        {
-           Track track=getTrackById(id);
+           track=getTrackById(id);
            trackRepository.delete(track);
-           result=true;
+
        }
        else
        {
            throw new TrackNotFoundException("Track not Found");
 
-       }return  result;
+       }
+       return track;
     }
 
     @Override

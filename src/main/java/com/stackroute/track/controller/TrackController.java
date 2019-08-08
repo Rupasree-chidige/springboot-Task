@@ -23,46 +23,39 @@ public class TrackController {
 
 
     @PostMapping("saveTrack")
-    public ResponseEntity<?> saveUser(@RequestBody Track track)
-    {
+    public ResponseEntity<?> saveUser(@RequestBody Track track) {
         ResponseEntity<?> responseEntity;
-        try{
+        try {
             trackService.saveTrack(track);
-            responseEntity=new ResponseEntity<String>("Successfully saved", HttpStatus.CREATED);
+            responseEntity = new ResponseEntity<String>("Successfully saved", HttpStatus.CREATED);
 
-        }
-        catch (Exception ex)
-        {
-            responseEntity=new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+        } catch (Exception ex) {
+            responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
 
 
     @GetMapping("getTracks")
-    public ResponseEntity<?> getAllTracks()
-    {
+    public ResponseEntity<?> getAllTracks() {
         return new ResponseEntity<List<Track>>(trackService.getAllTracks(), HttpStatus.OK);
     }
 
     // Implementing PUT method
     @PutMapping("updateTrack")
-    public ResponseEntity<?> updateTrack(@RequestBody Track track)
-    {
+    public ResponseEntity<?> updateTrack(@RequestBody Track track) {
         ResponseEntity responseEntity;
-        try{
+        try {
             trackService.UpdateTrack(track);
-            responseEntity=new ResponseEntity("Successfully updated", HttpStatus.CREATED);
-        }
-        catch (Exception e)
-        {
-            responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+            responseEntity = new ResponseEntity("Successfully updated", HttpStatus.CREATED);
+        } catch (Exception e) {
+            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
 
     // Implementing DELETE method
-    @DeleteMapping(value="/deleteTrack/{id}")
+    @DeleteMapping(value = "/deleteTrack/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable("id") int id) {
         ResponseEntity responseEntity;
         try {

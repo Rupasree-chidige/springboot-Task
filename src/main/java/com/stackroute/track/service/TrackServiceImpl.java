@@ -17,24 +17,27 @@ public class TrackServiceImpl implements TrackService{
     }
 
     @Override
-    public boolean saveTrack(Track track) {
-        Track saveduser=trackRepository.save(track);
-        return  true;
+    public Track saveTrack(Track track)  {
+        Track saveduser = null;
+        if(trackRepository.existsById(track.getId())) {
+            saveduser = trackRepository.save(track);
 
+        }
+
+        return saveduser;
     }
 
     @Override
-    public boolean deleteTrack(int id) {
-       if(trackRepository.existsById(id))
-       {
-           Track track=getTrackById(id);
-           trackRepository.delete(track);
-           return true;
-       }
-       else
-       {
-           return false;
-       }
+    public Track deleteTrack(int id)  {
+
+        Track track=null;
+        if(trackRepository.existsById(id))
+        {
+            track=getTrackById(id);
+            trackRepository.delete(track);
+
+        }
+        return track;
     }
 
     @Override
@@ -43,12 +46,22 @@ public class TrackServiceImpl implements TrackService{
     }
 
     @Override
-    public Track getTrackById(int id) {
-        return getTrackById(id);
+    public Track getTrackById(int id)  {
+        Track track=null;
+        if(getTrackById(id)!=null)
+        {
+            track= getTrackById(id);
+        }
+        return track;
     }
 
     @Override
-    public boolean UpdateTrack(Track track) {
-        return true;
+    public Track UpdateTrack(Track track)  {
+        Track updatedTrack=null;
+        if(trackRepository.existsById(track.getId())) {
+            updatedTrack = trackRepository.save(track);
+
+        }
+        return updatedTrack;
     }
 }

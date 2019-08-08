@@ -8,17 +8,18 @@ import java.util.List;
 public interface TrackService {
 
 
-        public boolean saveTrack(Track track);
+        public Track saveTrack(Track track);
 
-        public boolean deleteTrack(int id);
+        public Track deleteTrack(int id);
 
         public List<Track> getAllTracks();
 
         public Track getTrackById(int id);
 
-        public boolean UpdateTrack(Track track);
+        public Track UpdateTrack(Track track);
 
 
 
-    }
+}
+
 

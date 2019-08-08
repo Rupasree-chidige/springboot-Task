@@ -1,7 +1,6 @@
-package com.stackroute.userservice.service;
+package com.stackroute.track.service;
 
-import com.stackroute.userservice.domain.Track;
-import org.springframework.stereotype.Service;
+import com.stackroute.track.domain.Track;
 
 import java.util.List;
 

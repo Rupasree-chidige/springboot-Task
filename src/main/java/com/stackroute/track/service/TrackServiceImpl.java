@@ -1,12 +1,10 @@
-package com.stackroute.userservice.service;
+package com.stackroute.track.service;
 
-import com.stackroute.userservice.domain.Track;
-import com.stackroute.userservice.repository.TrackRepository;
+import com.stackroute.track.domain.Track;
+import com.stackroute.track.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service

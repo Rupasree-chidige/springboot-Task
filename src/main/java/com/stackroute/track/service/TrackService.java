@@ -10,15 +10,15 @@ import java.util.List;
 public interface TrackService {
 
 
-        public boolean saveTrack(Track track) throws TrackAlreadyExistsException;
+        public Track saveTrack(Track track) throws TrackAlreadyExistsException;
 
-        public boolean deleteTrack(int id) throws TrackNotFoundException;
+        public Track deleteTrack(int id) throws TrackNotFoundException;
 
         public List<Track> getAllTracks();
 
         public Track getTrackById(int id) throws TrackNotFoundException;
 
-        public Track updateTrack(Track track) throws TrackNotFoundException;
+        public Track UpdateTrack(Track track) throws TrackNotFoundException;
 
 
 

@@ -61,7 +61,7 @@ public class TrackController {
     public ResponseEntity<?> updateTrack(@RequestBody Track track){
         ResponseEntity responseEntity;
         try {
-            trackService.updateTrack(track);
+            trackService.UpdateTrack(track);
             responseEntity = new ResponseEntity<>("Successfully updated", HttpStatus.OK);
 
         }catch (TrackNotFoundException e){

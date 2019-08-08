@@ -1,19 +1,16 @@
-package com.stackroute.userservice.controller;
+package com.stackroute.track.controller;
 
 
-import com.stackroute.userservice.domain.Track;
-import com.stackroute.userservice.exceptions.TrackAlreadyExistsException;
-import com.stackroute.userservice.exceptions.TrackNotFoundException;
-import com.stackroute.userservice.service.TrackService;
+import com.stackroute.track.domain.Track;
+import com.stackroute.track.exceptions.TrackAlreadyExistsException;
+import com.stackroute.track.exceptions.TrackNotFoundException;
+import com.stackroute.track.service.TrackService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1")

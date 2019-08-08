@@ -1,9 +1,9 @@
-package com.stackroute.userservice.config;
+package com.stackroute.track.config;
 
 
-import com.stackroute.userservice.domain.Track;
-import com.stackroute.userservice.exceptions.TrackAlreadyExistsException;
-import com.stackroute.userservice.service.TrackService;
+import com.stackroute.track.domain.Track;
+import com.stackroute.track.exceptions.TrackAlreadyExistsException;
+import com.stackroute.track.service.TrackService;
 import org.apache.catalina.servlets.WebdavServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -15,7 +15,6 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
 import springfox.documentation.service.Tag;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;

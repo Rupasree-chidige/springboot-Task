@@ -1,4 +1,4 @@
-package com.stackroute.userservice;
+package com.stackroute.track;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

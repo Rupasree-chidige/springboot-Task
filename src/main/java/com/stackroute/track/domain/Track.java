@@ -1,4 +1,4 @@
-package com.stackroute.userservice.domain;
+package com.stackroute.track.domain;
 
 
 import javax.persistence.Entity;

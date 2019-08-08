@@ -1,12 +1,12 @@
-package com.stackroute.userservice.controller;
+package com.stackroute.track.controller;
 
 
-import com.stackroute.userservice.domain.Track;
-import com.stackroute.userservice.service.TrackService;
+import com.stackroute.track.domain.Track;
+import com.stackroute.track.service.TrackService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +21,7 @@ public class TrackController {
     public TrackController(TrackService trackService) {
         this.trackService = trackService;
     }
+
 
 
     @PostMapping("saveTrack")
@@ -63,23 +64,12 @@ public class TrackController {
     }
 
     // Implementing DELETE method
-    @DeleteMapping(value="deleteTrack/{id}")
+    @DeleteMapping(value="/deleteTrack/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable("id") int id) {
         ResponseEntity responseEntity;
         try {
             trackService.deleteTrack(id);
             responseEntity = new ResponseEntity("Successfully deleted", HttpStatus.CREATED);
-        } catch (Exception e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
-        }
-        return responseEntity;
-    }
-    @GetMapping(value="getTrack/{id}")
-    public ResponseEntity<?> getTrackbyId(@PathVariable("id") int id) {
-        ResponseEntity responseEntity;
-        try {
-
-            responseEntity = new ResponseEntity(trackService.getTrackById(id), HttpStatus.CREATED);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
